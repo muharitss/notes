@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(4 / 11) * 100%` = **36.36% (4 dari 11 Task Selesai)**
+   - Realisasi: `(5 / 11) * 100%` = **45.45% (5 dari 11 Task Selesai)**
 
 ---
 
@@ -37,7 +37,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-002** | Local Data Layer (Room & DAOs) | `DONE` | TASK-001 | [TASK-002.md](file:///home/alarm/notes/tasks/TASK-002-local-data-layer.md) |
 | **TASK-003** | Domain Models & Contracts | `DONE` | TASK-001 | [TASK-003.md](file:///home/alarm/notes/tasks/TASK-003-domain-and-contracts.md) |
 | **TASK-004** | Data Layer Repositories & Mappers | `DONE` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
-| **TASK-005** | Design System & Navigation Base | `NOT_STARTED` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
+| **TASK-005** | Design System & Navigation Base | `DONE` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
 | **TASK-006** | Feature: Notebook Management (Dashboard) | `NOT_STARTED` | TASK-004, TASK-005 | [TASK-006.md](file:///home/alarm/notes/tasks/TASK-006-notebook-management.md) |
 | **TASK-007** | Feature: Note List in Notebook | `NOT_STARTED` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
 | **TASK-008** | Feature: Note Editor with Auto-Save | `NOT_STARTED` | TASK-004, TASK-005, TASK-007 | [TASK-008.md](file:///home/alarm/notes/tasks/TASK-008-note-editor-autosave.md) |
@@ -50,7 +50,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 - [x] TASK-002 — Local Data Layer (Room & DAOs) (DONE)
 - [x] TASK-003 — Domain Models & Contracts (DONE)
 - [x] TASK-004 — Data Layer Repositories & Mappers (DONE)
-- [ ] TASK-005 — Design System & Navigation Base
+- [x] TASK-005 — Design System & Navigation Base (DONE)
 - [ ] TASK-006 — Feature: Notebook Management (Dashboard)
 - [ ] TASK-007 — Feature: Note List in Notebook
 - [ ] TASK-008 — Feature: Note Editor with Auto-Save
@@ -62,18 +62,18 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ## 4. Status Eksekusi Saat Ini
 
-- **Task yang Sedang Dikerjakan:** `NONE` (TASK-004 selesai).
-- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-005** (Design System & Navigation Base).
-- **Task yang Terblokir:** TASK-006 s/d TASK-011.
+- **Task yang Sedang Dikerjakan:** `NONE` (TASK-005 selesai).
+- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-006** (Feature: Notebook Management (Dashboard)).
+- **Task yang Terblokir:** TASK-007 s/d TASK-011.
 
 ---
 
 ## 5. Ringkasan Pekerjaan Terakhir & Verifikasi
 
-- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-004 (`BookMapper`, `NoteMapper`, `BookRepositoryImpl`, `NoteRepositoryImpl`, `AppContainer`, inisialisasi pada `App.kt`, serta unit test `MapperTest` dan `RepositoryTest`).
+- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-005 (Design system M3: `Theme.kt`, `Color.kt`, `Type.kt`, 8 preset warna cover buku, reusable components `NoteTopAppBar`, `ConfirmationDialog`, `ColorPalettePicker`, `EmptyStatePlaceholder`, rute type-safe `Destination`, `AppNavHost`, integrasi ke `MainActivity.kt`, serta unit test `DesignSystemTest`).
 - **Pengujian yang Sudah Dijalankan:**
-  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL in 36s` (Seluruh 25 unit test task lulus).
-  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (seluruh unit test lulus).
+  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL in 30s` (20 unit test lulus).
+  - `./gradlew assembleDebug` -> `BUILD SUCCESSFUL in 3m 53s` (APK terkompilasi bersih).
 - **Keputusan yang Menunggu Persetujuan:**
   1. Persetujuan proposal arsitektur 3-Layer (Clean Architecture proporsional).
   2. Keputusan akhir Dependency Injection: Manual DI via `AppContainer` (direkomendasikan) vs. Koin.

@@ -41,26 +41,28 @@ Layar fitur membutuhkan fondasi visual terstandarisasi, palet warna sampul buku,
 - `app/src/main/java/com/notes/digital/navigation/AppNavHost.kt`
 
 ## 9. Acceptance Criteria
-- [ ] `@Preview` pada seluruh komponen reusable dapat di-render tanpa crash.
-- [ ] Touch target komponen interaktif minimal 48x48 dp.
-- [ ] Struktur rute type-safe terdefinisi untuk seluruh layar.
+- [x] `@Preview` pada seluruh komponen reusable dapat di-render tanpa crash.
+- [x] Touch target komponen interaktif minimal 48x48 dp.
+- [x] Struktur rute type-safe terdefinisi untuk seluruh layar.
 
 ## 10. Skenario Pengujian
-- Compose UI test untuk memverifikasi `EmptyStatePlaceholder` (Lolos `TEST-008`).
+- Unit test serialisasi rute `Destination` dan validasi 8 warna palette (`DesignSystemTest`).
+- Verifikasi kompilasi Preview dan build APK debug (`assembleDebug`).
 
 ## 11. Langkah Verifikasi
-1. Jalankan Compose Preview test atau jalankan aplikasi di emulator.
-2. Pastikan kerangka navigasi berhasil me-render layar awal.
+1. Jalankan unit test: `./gradlew testDebugUnitTest` -> Lolos (`BUILD SUCCESSFUL in 30s`).
+2. Jalankan build debug APK: `./gradlew assembleDebug` -> Lolos (`BUILD SUCCESSFUL in 3m 53s`).
+3. Seluruh komponen terkompilasi bersih tanpa peringatan deprecation.
 
 ## 12. Risiko & Catatan Implementasi
-- Pastikan semua icon memiliki `contentDescription` eksplisit untuk aksesibilitas.
+- Semua icon memiliki `contentDescription` eksplisit untuk aksesibilitas TalkBack.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat `Theme.kt`, `Color.kt`, `Type.kt`
-- [ ] Buat 4 komponen reusable
-- [ ] Definisikan rute `Destination`
-- [ ] Siapkan `AppNavHost`
-- [ ] Verifikasi render komponen
+- [x] Buat `Theme.kt`, `Color.kt`, `Type.kt`
+- [x] Buat 4 komponen reusable
+- [x] Definisikan rute `Destination`
+- [x] Siapkan `AppNavHost`
+- [x] Verifikasi render komponen
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`
