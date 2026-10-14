@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(0 / 11) * 100%` = **0% (0 dari 11 Task Selesai)**
+   - Realisasi: `(1 / 11) * 100%` = **9.09% (1 dari 11 Task Selesai)**
 
 ---
 
@@ -33,7 +33,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 | ID Task | Nama Task | Status | Dependensi | Tautan Dokumen |
 | :--- | :--- | :---: | :--- | :--- |
-| **TASK-001** | Project Setup & Baseline Tooling | `NOT_STARTED` | Tidak ada | [TASK-001.md](file:///home/alarm/notes/tasks/TASK-001-project-setup.md) |
+| **TASK-001** | Project Setup & Baseline Tooling | `DONE` | Tidak ada | [TASK-001.md](file:///home/alarm/notes/tasks/TASK-001-project-setup.md) |
 | **TASK-002** | Local Data Layer (Room & DAOs) | `NOT_STARTED` | TASK-001 | [TASK-002.md](file:///home/alarm/notes/tasks/TASK-002-local-data-layer.md) |
 | **TASK-003** | Domain Models & Contracts | `NOT_STARTED` | TASK-001 | [TASK-003.md](file:///home/alarm/notes/tasks/TASK-003-domain-and-contracts.md) |
 | **TASK-004** | Data Layer Repositories & Mappers | `NOT_STARTED` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
@@ -46,7 +46,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-011** | End-to-End Verification & QA Release | `NOT_STARTED` | TASK-001 s/d TASK-010 | [TASK-011.md](file:///home/alarm/notes/tasks/TASK-011-verification-and-release.md) |
 
 ### Status Ringkas
-- [ ] TASK-001 — Project Setup & Baseline Tooling
+- [x] TASK-001 — Project Setup & Baseline Tooling (DONE)
 - [ ] TASK-002 — Local Data Layer (Room & DAOs)
 - [ ] TASK-003 — Domain Models & Contracts
 - [ ] TASK-004 — Data Layer Repositories & Mappers
@@ -62,16 +62,18 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ## 4. Status Eksekusi Saat Ini
 
-- **Task yang Sedang Dikerjakan:** `NONE` (Tidak ada task yang aktif).
-- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-001** (Dapat langsung dikerjakan begitu dokumen disetujui pengguna).
-- **Task yang Terblokir:** Seluruh task implementasi (TASK-001 s/d TASK-011) saat ini tertahan oleh gerbang persetujuan (*Pending Approval Gate*).
+- **Task yang Sedang Dikerjakan:** `NONE` (TASK-001 selesai).
+- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-002**, **TASK-003**, **TASK-005** (Dependensi TASK-001 terpenuhi).
+- **Task yang Terblokir:** TASK-004, TASK-006 s/d TASK-011.
 
 ---
 
 ## 5. Ringkasan Pekerjaan Terakhir & Verifikasi
 
-- **Hasil Pekerjaan Terakhir:** Penyusunan master PRD (`prd.md`), instruksi operasional agen (`AGENTS.md`), spesifikasi teknis lengkap di folder `specs/`, serta 11 breakdown file task mandiri di folder `tasks/`.
-- **Pengujian yang Sudah Dijalankan:** N/A (Fase pengujian kode belum dimulai).
+- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-001 (Setup baseline tooling Kotlin 2.0.21, AGP 8.5.2, Jetpack Compose, Room 2.6.1, KSP, manifest tanpa internet permission, dan native aapt2 override untuk Linux AArch64).
+- **Pengujian yang Sudah Dijalankan:**
+  - `./gradlew assembleDebug` -> `BUILD SUCCESSFUL` (17MB `app-debug.apk` terkompilasi).
+  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (seluruh unit test lulus).
 - **Keputusan yang Menunggu Persetujuan:**
   1. Persetujuan proposal arsitektur 3-Layer (Clean Architecture proporsional).
   2. Keputusan akhir Dependency Injection: Manual DI via `AppContainer` (direkomendasikan) vs. Koin.

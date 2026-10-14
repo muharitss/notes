@@ -38,25 +38,32 @@ Proyek belum memiliki skrip build dasar dan pustaka Android Jetpack yang diperlu
 - `app/src/main/java/com/notes/digital/MainActivity.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Perintah `./gradlew assembleDebug` berhasil dikompilasi tanpa error.
-- [ ] Perintah `./gradlew testDebugUnitTest` dapat dieksekusi tanpa error.
-- [ ] Tidak ada permission internet pada file manifest.
+- [x] Perintah `./gradlew assembleDebug` berhasil dikompilasi tanpa error.
+- [x] Perintah `./gradlew testDebugUnitTest` dapat dieksekusi tanpa error.
+- [x] Tidak ada permission internet pada file manifest.
 
 ## 10. Skenario Pengujian
-- Verifikasi build pipeline lokal dan eksekusi tes unit kosong berjalan sukses.
+- Verifikasi build pipeline lokal dan eksekusi tes unit baseline berjalan sukses.
 
 ## 11. Langkah Verifikasi
-1. Jalankan `./gradlew assembleDebug` di terminal.
-2. Pastikan hasil output bertuliskan `BUILD SUCCESSFUL`.
+1. Jalankan `./gradlew assembleDebug` di terminal -> `BUILD SUCCESSFUL` (menghasilkan `app/build/outputs/apk/debug/app-debug.apk`).
+2. Jalankan `./gradlew testDebugUnitTest` di terminal -> `BUILD SUCCESSFUL` (seluruh unit test tereksekusi tanpa error).
 
 ## 12. Risiko & Catatan Implementasi
-- Pastikan kompatibilitas versi Compose Compiler dengan versi Kotlin yang digunakan.
+- Lingkungan Linux AArch64 dikonfigurasi menggunakan native AAPT2 override melalui `android.aapt2FromMavenOverride=/usr/local/bin/aapt2` di `gradle.properties`.
 
 ## 13. Checklist Pekerjaan
-- [ ] Konfigurasi `libs.versions.toml`
-- [ ] Konfigurasi `build.gradle.kts`
-- [ ] Konfigurasi manifest tanpa permission
-- [ ] Verifikasi build sukses di terminal
+- [x] Konfigurasi `libs.versions.toml`
+- [x] Konfigurasi `build.gradle.kts` (Project & App)
+- [x] Konfigurasi manifest tanpa permission internet
+- [x] Verifikasi build sukses di terminal (`assembleDebug` & `testDebugUnitTest`)
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`
+
+## 15. Ringkasan Eksekusi & Bukti Pengujian
+- **Tanggal Penyelesaian:** 2026-10-14
+- **Bukti Build:** `./gradlew assembleDebug` menghasilkan status `BUILD SUCCESSFUL in 5m 26s`.
+- **Bukti Unit Test:** `./gradlew testDebugUnitTest` menghasilkan status `BUILD SUCCESSFUL in 38s`.
+- **Manifest:** Bersih tanpa `uses-permission`.
+
