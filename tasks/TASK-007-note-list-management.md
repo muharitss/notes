@@ -40,10 +40,10 @@ Pengguna membutuhkan tempat untuk melihat seluruh daftar pertemuan/bab yang terk
 - `app/src/test/java/com/notes/digital/feature/bookdetail/BookDetailViewModelTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Catatan yang disematkan (*is_pinned*) otomatis berpindah ke urutan teratas.
-- [ ] Pengguna dapat beralih antara urutan "Terbaru Dimodifikasi" dan "Terlama Dibuat".
-- [ ] Mengetuk FAB "Catatan Baru" menavigasi ke `NoteEditor(bookId, noteId = -1L)`.
-- [ ] Mengetuk item catatan menavigasi ke `NoteEditor(bookId, noteId = note.id)`.
+- [x] Catatan yang disematkan (*is_pinned*) otomatis berpindah ke urutan teratas.
+- [x] Pengguna dapat beralih antara urutan "Terbaru Dimodifikasi" dan "Terlama Dibuat".
+- [x] Mengetuk FAB "Catatan Baru" menavigasi ke `NoteEditor(bookId, noteId = -1L)`.
+- [x] Mengetuk item catatan menavigasi ke `NoteEditor(bookId, noteId = note.id)`.
 
 ## 10. Skenario Pengujian
 - Unit test pengurutan catatan (Lolos `TEST-003`).
@@ -52,17 +52,18 @@ Pengguna membutuhkan tempat untuk melihat seluruh daftar pertemuan/bab yang terk
 ## 11. Langkah Verifikasi
 1. Jalankan `./gradlew testDebugUnitTest --tests "*.feature.bookdetail.*"`.
 2. Pastikan logika sorting dan pin teruji.
+- **Hasil:** Terverifikasi lulus 100% pada 2026-10-15 via `./gradlew testDebugUnitTest --tests "com.notes.digital.feature.bookdetail.*"`.
 
 ## 12. Risiko & Catatan Implementasi
 - Pastikan pencarian internal buku hanya memfilter catatan yang memiliki `book_id` sesuai.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat contract `BookDetailContract`
-- [ ] Buat `BookDetailViewModel`
-- [ ] Buat `NoteListItem` dan `SortOrderDropdown`
-- [ ] Buat `BookDetailScreen`
-- [ ] Tulis unit test
-- [ ] Verifikasi acceptance criteria
+- [x] Buat contract `BookDetailContract`
+- [x] Buat `BookDetailViewModel`
+- [x] Buat `NoteListItem` dan `SortOrderDropdown`
+- [x] Buat `BookDetailScreen`
+- [x] Tulis unit test
+- [x] Verifikasi acceptance criteria
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`

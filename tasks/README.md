@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(6 / 11) * 100%` = **54.55% (6 dari 11 Task Selesai)**
+   - Realisasi: `(7 / 11) * 100%` = **63.64% (7 dari 11 Task Selesai)**
 
 ---
 
@@ -39,7 +39,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-004** | Data Layer Repositories & Mappers | `DONE` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
 | **TASK-005** | Design System & Navigation Base | `DONE` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
 | **TASK-006** | Feature: Notebook Management (Dashboard) | `DONE` | TASK-004, TASK-005 | [TASK-006.md](file:///home/alarm/notes/tasks/TASK-006-notebook-management.md) |
-| **TASK-007** | Feature: Note List in Notebook | `NOT_STARTED` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
+| **TASK-007** | Feature: Note List in Notebook | `DONE` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
 | **TASK-008** | Feature: Note Editor with Auto-Save | `NOT_STARTED` | TASK-004, TASK-005, TASK-007 | [TASK-008.md](file:///home/alarm/notes/tasks/TASK-008-note-editor-autosave.md) |
 | **TASK-009** | Feature: Local Search & Filtering | `NOT_STARTED` | TASK-007, TASK-008 | [TASK-009.md](file:///home/alarm/notes/tasks/TASK-009-search-and-organization.md) |
 | **TASK-010** | Utility: Local Backup (JSON SAF) | `NOT_STARTED` | TASK-004 | [TASK-010.md](file:///home/alarm/notes/tasks/TASK-010-local-backup-saf.md) |
@@ -52,7 +52,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 - [x] TASK-004 — Data Layer Repositories & Mappers (DONE)
 - [x] TASK-005 — Design System & Navigation Base (DONE)
 - [x] TASK-006 — Feature: Notebook Management (Dashboard) (DONE)
-- [ ] TASK-007 — Feature: Note List in Notebook
+- [x] TASK-007 — Feature: Note List in Notebook (DONE)
 - [ ] TASK-008 — Feature: Note Editor with Auto-Save
 - [ ] TASK-009 — Feature: Local Search & Filtering
 - [ ] TASK-010 — Utility: Local Backup (JSON SAF)

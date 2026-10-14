@@ -44,9 +44,26 @@ fun AppNavHost(
         }
         composable<Destination.BookDetail> { backStackEntry ->
             val route = backStackEntry.toRoute<Destination.BookDetail>()
-            Surface(modifier = Modifier.fillMaxSize()) {
-                Text(text = "Detail Buku ID: ${route.bookId}")
-            }
+            val context = androidx.compose.ui.platform.LocalContext.current
+            val app = context.applicationContext as com.notes.digital.App
+            val viewModel: com.notes.digital.feature.bookdetail.BookDetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+                factory = com.notes.digital.feature.bookdetail.BookDetailViewModel.provideFactory(app.container, route.bookId)
+            )
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+            com.notes.digital.feature.bookdetail.BookDetailScreen(
+                uiState = uiState,
+                onEvent = viewModel::onEvent,
+                onNavigateBack = {
+                    navController.popBackStack()
+                },
+                onNoteClick = { noteId ->
+                    navController.navigate(Destination.NoteEditor(bookId = route.bookId, noteId = noteId))
+                },
+                onAddNoteClick = {
+                    navController.navigate(Destination.NoteEditor(bookId = route.bookId, noteId = -1L))
+                }
+            )
         }
         composable<Destination.NoteEditor> { backStackEntry ->
             val route = backStackEntry.toRoute<Destination.NoteEditor>()
