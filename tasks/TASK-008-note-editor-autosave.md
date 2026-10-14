@@ -43,10 +43,10 @@ Merupakan fungsionalitas inti aplikasi di mana pengguna mengetikkan isi materi p
 - `app/src/test/java/com/notes/digital/feature/noteeditor/NoteEditorViewModelTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Berhenti mengetik selama 500 ms otomatis memicu penyimpanan ke Room (Lolos `TEST-005`).
-- [ ] Menekan tombol kembali atau mematikan aplikasi langsung memicu instant flush penyimpanan (Lolos `TEST-006`).
-- [ ] Rotasi layar tidak menyebabkan teks yang sedang diketik hilang atau ter-reset (Lolos `TEST-009`).
-- [ ] Kriteria Zero Data Loss terpenuhi.
+- [x] Berhenti mengetik selama 500 ms otomatis memicu penyimpanan ke Room (Lolos `TEST-005`).
+- [x] Menekan tombol kembali atau mematikan aplikasi langsung memicu instant flush penyimpanan (Lolos `TEST-006`).
+- [x] Rotasi layar tidak menyebabkan teks yang sedang diketik hilang atau ter-reset (Lolos `TEST-009`).
+- [x] Kriteria Zero Data Loss terpenuhi.
 
 ## 10. Skenario Pengujian
 - **TEST-005:** Debounce timing test (499 ms vs 501 ms).
@@ -56,17 +56,19 @@ Merupakan fungsionalitas inti aplikasi di mana pengguna mengetikkan isi materi p
 ## 11. Langkah Verifikasi
 1. Jalankan unit test ViewModel: `./gradlew testDebugUnitTest --tests "*.feature.noteeditor.*"`.
 2. Uji ketikan cepat di emulator, lakukan force kill, dan buka kembali untuk memastikan teks tersimpan.
+- **Hasil:** Terverifikasi lulus 100% pada 2026-10-15 via `./gradlew testDebugUnitTest --tests "com.notes.digital.feature.noteeditor.*"` dan `./gradlew assembleDebug`.
 
 ## 12. Risiko & Catatan Implementasi
 - Hindari loop rekursif auto-save yang terpicu oleh update ID setelah insert pertama catatan baru.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat contract `NoteEditorContract`
-- [ ] Implementasikan auto-save debounce di ViewModel
-- [ ] Implementasikan instant flush di `onPause` / `onCleared`
-- [ ] Buat `NoteEditorScreen` dengan indikator status
-- [ ] Tulis unit test debounce & flush
-- [ ] Verifikasi acceptance criteria
+- [x] Buat contract `NoteEditorContract`
+- [x] Implementasikan auto-save debounce di ViewModel
+- [x] Implementasikan instant flush di `onPause` / `onCleared`
+- [x] Buat `NoteEditorScreen` dengan indikator status
+- [x] Tulis unit test debounce & flush
+- [x] Verifikasi acceptance criteria
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`
+

@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(7 / 11) * 100%` = **63.64% (7 dari 11 Task Selesai)**
+   - Realisasi: `(8 / 11) * 100%` = **72.73% (8 dari 11 Task Selesai)**
 
 ---
 
@@ -40,7 +40,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-005** | Design System & Navigation Base | `DONE` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
 | **TASK-006** | Feature: Notebook Management (Dashboard) | `DONE` | TASK-004, TASK-005 | [TASK-006.md](file:///home/alarm/notes/tasks/TASK-006-notebook-management.md) |
 | **TASK-007** | Feature: Note List in Notebook | `DONE` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
-| **TASK-008** | Feature: Note Editor with Auto-Save | `NOT_STARTED` | TASK-004, TASK-005, TASK-007 | [TASK-008.md](file:///home/alarm/notes/tasks/TASK-008-note-editor-autosave.md) |
+| **TASK-008** | Feature: Note Editor with Auto-Save | `DONE` | TASK-004, TASK-005, TASK-007 | [TASK-008.md](file:///home/alarm/notes/tasks/TASK-008-note-editor-autosave.md) |
 | **TASK-009** | Feature: Local Search & Filtering | `NOT_STARTED` | TASK-007, TASK-008 | [TASK-009.md](file:///home/alarm/notes/tasks/TASK-009-search-and-organization.md) |
 | **TASK-010** | Utility: Local Backup (JSON SAF) | `NOT_STARTED` | TASK-004 | [TASK-010.md](file:///home/alarm/notes/tasks/TASK-010-local-backup-saf.md) |
 | **TASK-011** | End-to-End Verification & QA Release | `NOT_STARTED` | TASK-001 s/d TASK-010 | [TASK-011.md](file:///home/alarm/notes/tasks/TASK-011-verification-and-release.md) |
@@ -53,7 +53,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 - [x] TASK-005 — Design System & Navigation Base (DONE)
 - [x] TASK-006 — Feature: Notebook Management (Dashboard) (DONE)
 - [x] TASK-007 — Feature: Note List in Notebook (DONE)
-- [ ] TASK-008 — Feature: Note Editor with Auto-Save
+- [x] TASK-008 — Feature: Note Editor with Auto-Save (DONE)
 - [ ] TASK-009 — Feature: Local Search & Filtering
 - [ ] TASK-010 — Utility: Local Backup (JSON SAF)
 - [ ] TASK-011 — End-to-End Verification & QA Release
@@ -62,18 +62,18 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ## 4. Status Eksekusi Saat Ini
 
-- **Task yang Sedang Dikerjakan:** `NONE` (TASK-006 selesai).
-- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-007** (Feature: Note List in Notebook).
-- **Task yang Terblokir:** TASK-008 s/d TASK-011.
+- **Task yang Sedang Dikerjakan:** `NONE` (TASK-008 selesai).
+- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-009** (Feature: Local Search & Filtering).
+- **Task yang Terblokir:** TASK-010 s/d TASK-011.
 
 ---
 
 ## 5. Ringkasan Pekerjaan Terakhir & Verifikasi
 
-- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-006 (Feature Notebook Management: `BookListContract`, `BookListViewModel`, `BookCard`, `AddEditBookDialog`, `BookListScreen`, integrasi rute navigasi `BookList`, dan unit test `BookListViewModelTest`).
+- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-008 (Feature Note Editor with Auto-Save: `NoteEditorContract`, `NoteEditorViewModel` dengan debouncing 500 ms dan instant flush, `NoteEditorScreen` layout bebas distraksi, integrasi rute navigasi `Destination.NoteEditor` di `AppNavHost`, serta unit test lengkap `NoteEditorViewModelTest`).
 - **Pengujian yang Sudah Dijalankan:**
-  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL in 34s` (Seluruh unit test lulus).
-  - `./gradlew assembleDebug` -> `BUILD SUCCESSFUL in 16s` (APK terkompilasi bersih).
+  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (40 unit test lulus 100%).
+  - `./gradlew assembleDebug` -> `BUILD SUCCESSFUL` (APK terkompilasi bersih).
 - **Keputusan yang Menunggu Persetujuan:**
   1. Persetujuan proposal arsitektur 3-Layer (Clean Architecture proporsional).
   2. Keputusan akhir Dependency Injection: Manual DI via `AppContainer` (direkomendasikan) vs. Koin.
