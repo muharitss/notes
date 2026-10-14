@@ -40,27 +40,27 @@ Presenter/ViewModel membutuhkan sumber data konkret yang mengimplementasikan int
 - `app/src/test/java/com/notes/digital/data/mapper/MapperTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Data Entity dari Room terkonversi secara presisi ke Domain Model tanpa kehilangan data nilai ID atau timestamp.
-- [ ] Operasi baca/tulis repository berjalan di `Dispatchers.IO`.
-- [ ] `AppContainer` menyediakan instansiasi singleton repository yang siap diinjeksi ke ViewModel.
+- [x] Data Entity dari Room terkonversi secara presisi ke Domain Model tanpa kehilangan data nilai ID atau timestamp.
+- [x] Operasi baca/tulis repository berjalan di `Dispatchers.IO`.
+- [x] `AppContainer` menyediakan instansiasi singleton repository yang siap diinjeksi ke ViewModel.
 
 ## 10. Skenario Pengujian
-- Unit test mapping Entity ke Domain dan sebaliknya.
-- Repository test menggunakan Fake DAO.
+- Unit test mapping Entity ke Domain dan sebaliknya (`MapperTest`).
+- Repository test menggunakan Fake DAO dan Turbine (`RepositoryTest`).
 
 ## 11. Langkah Verifikasi
-1. Jalankan unit test mapper: `./gradlew testDebugUnitTest --tests "*.data.mapper.*"`.
-2. Pastikan hasil test lolos.
+1. Jalankan unit test mapper & repo: `./gradlew testDebugUnitTest`.
+2. Hasil: BUILD SUCCESSFUL (25 actionable tasks, seluruh unit test lulus).
 
 ## 12. Risiko & Catatan Implementasi
-- Tangani nilai null pada deskripsi buku dengan aman saat mapping.
+- Nilai null pada deskripsi buku ditangani dengan aman saat mapping.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat mapper Book & Note
-- [ ] Implementasikan `BookRepositoryImpl`
-- [ ] Implementasikan `NoteRepositoryImpl`
-- [ ] Buat `AppContainer`
-- [ ] Verifikasi test mapping lolos
+- [x] Buat mapper Book & Note
+- [x] Implementasikan `BookRepositoryImpl`
+- [x] Implementasikan `NoteRepositoryImpl`
+- [x] Buat `AppContainer`
+- [x] Verifikasi test mapping lolos
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`

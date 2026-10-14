@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(3 / 11) * 100%` = **27.27% (3 dari 11 Task Selesai)**
+   - Realisasi: `(4 / 11) * 100%` = **36.36% (4 dari 11 Task Selesai)**
 
 ---
 
@@ -36,7 +36,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-001** | Project Setup & Baseline Tooling | `DONE` | Tidak ada | [TASK-001.md](file:///home/alarm/notes/tasks/TASK-001-project-setup.md) |
 | **TASK-002** | Local Data Layer (Room & DAOs) | `DONE` | TASK-001 | [TASK-002.md](file:///home/alarm/notes/tasks/TASK-002-local-data-layer.md) |
 | **TASK-003** | Domain Models & Contracts | `DONE` | TASK-001 | [TASK-003.md](file:///home/alarm/notes/tasks/TASK-003-domain-and-contracts.md) |
-| **TASK-004** | Data Layer Repositories & Mappers | `NOT_STARTED` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
+| **TASK-004** | Data Layer Repositories & Mappers | `DONE` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
 | **TASK-005** | Design System & Navigation Base | `NOT_STARTED` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
 | **TASK-006** | Feature: Notebook Management (Dashboard) | `NOT_STARTED` | TASK-004, TASK-005 | [TASK-006.md](file:///home/alarm/notes/tasks/TASK-006-notebook-management.md) |
 | **TASK-007** | Feature: Note List in Notebook | `NOT_STARTED` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
@@ -49,7 +49,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 - [x] TASK-001 — Project Setup & Baseline Tooling (DONE)
 - [x] TASK-002 — Local Data Layer (Room & DAOs) (DONE)
 - [x] TASK-003 — Domain Models & Contracts (DONE)
-- [ ] TASK-004 — Data Layer Repositories & Mappers
+- [x] TASK-004 — Data Layer Repositories & Mappers (DONE)
 - [ ] TASK-005 — Design System & Navigation Base
 - [ ] TASK-006 — Feature: Notebook Management (Dashboard)
 - [ ] TASK-007 — Feature: Note List in Notebook
@@ -62,17 +62,17 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ## 4. Status Eksekusi Saat Ini
 
-- **Task yang Sedang Dikerjakan:** `NONE` (TASK-003 selesai).
-- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-004**, **TASK-005** (Dependensi TASK-002 & TASK-003 telah terpenuhi).
+- **Task yang Sedang Dikerjakan:** `NONE` (TASK-004 selesai).
+- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-005** (Design System & Navigation Base).
 - **Task yang Terblokir:** TASK-006 s/d TASK-011.
 
 ---
 
 ## 5. Ringkasan Pekerjaan Terakhir & Verifikasi
 
-- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-003 (Domain models `Book`, `Note`, `BookWithNotes`, `AppResult`, repository interfaces `BookRepository`, `NoteRepository`, serta use cases buku & catatan dengan validasi).
+- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-004 (`BookMapper`, `NoteMapper`, `BookRepositoryImpl`, `NoteRepositoryImpl`, `AppContainer`, inisialisasi pada `App.kt`, serta unit test `MapperTest` dan `RepositoryTest`).
 - **Pengujian yang Sudah Dijalankan:**
-  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL in 31s` (Semua unit test domain lulus, termasuk TEST-004 dan TEST-007).
+  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL in 36s` (Seluruh 25 unit test task lulus).
   - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (seluruh unit test lulus).
 - **Keputusan yang Menunggu Persetujuan:**
   1. Persetujuan proposal arsitektur 3-Layer (Clean Architecture proporsional).
