@@ -38,9 +38,9 @@ Aplikasi membutuhkan fondasi penyimpanan lokal persisten sebelum repository dan 
 - `app/src/androidTest/java/com/notes/digital/core/database/DatabaseIntegrationTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Database Room berhasil dibuat dengan versi skema `1`.
-- [ ] Menghapus `BookEntity` otomatis menghapus seluruh `NoteEntity` anak melalui mekanisme cascade delete (Lolos `TEST-001`).
-- [ ] Query Room mengembalikan `Flow` yang bereaksi instan saat data disisipkan atau diubah (Lolos `TEST-002`).
+- [x] Database Room berhasil dibuat dengan versi skema `1`.
+- [x] Menghapus `BookEntity` otomatis menghapus seluruh `NoteEntity` anak melalui mekanisme cascade delete (Lolos `TEST-001`).
+- [x] Query Room mengembalikan `Flow` yang bereaksi instan saat data disisipkan atau diubah (Lolos `TEST-002`).
 
 ## 10. Skenario Pengujian
 - **TEST-001:** Foreign key cascade delete test.
@@ -55,11 +55,24 @@ Aplikasi membutuhkan fondasi penyimpanan lokal persisten sebelum repository dan 
 - Pastikan Room compiler KSP terpasang dengan benar agar code generation DAO tidak gagal.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat `BookEntity` dan `NoteEntity`
-- [ ] Buat `BookDao` dan `NoteDao`
-- [ ] Buat `AppDatabase`
-- [ ] Buat dan eksekusi Database Integration Tests
-- [ ] Pastikan cascade delete berfungsi
+- [x] Buat `BookEntity` dan `NoteEntity`
+- [x] Buat `BookDao` dan `NoteDao`
+- [x] Buat `AppDatabase`
+- [x] Buat dan eksekusi Database Integration Tests
+- [x] Pastikan cascade delete berfungsi
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`
+
+## 15. Ringkasan Eksekusi & Bukti Pengujian
+- **Tanggal Penyelesaian:** 2026-10-15
+- **Komponen Dibuat:**
+  - `BookEntity.kt`: Indeks `idx_books_updated_at`.
+  - `NoteEntity.kt`: Foreign key cascade delete ke `books(id)`, indeks `book_id`, `updated_at`, `is_pinned`.
+  - `BookDao.kt`: Method reaktif `getAllBooksWithCount()` dengan `BookWithCountTuple`, `getBookById()`, `insertOrUpdateBook()`, `deleteBookById()`.
+  - `NoteDao.kt`: Method reaktif `getNotesByBookDescending()`, `getNotesByBookAscending()`, `getNoteById()`, `searchNotesGlobal()`, `insertOrUpdateNote()`, `deleteNoteById()`, `updatePinStatus()`.
+  - `AppDatabase.kt`: Room database v1 (exportSchema = false).
+  - `DatabaseIntegrationTest.kt`: Skenario uji TEST-001 (Cascade Delete), TEST-002 (Reactive Flow), TEST-003 (Note Sorting).
+- **Bukti Build & Kompilasi:**
+  - `./gradlew assembleDebugAndroidTest` -> `BUILD SUCCESSFUL in 4m 35s`.
+  - `./gradlew testDebugUnitTest assembleDebug` -> `BUILD SUCCESSFUL in 43s`.

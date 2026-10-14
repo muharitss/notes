@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(1 / 11) * 100%` = **9.09% (1 dari 11 Task Selesai)**
+   - Realisasi: `(2 / 11) * 100%` = **18.18% (2 dari 11 Task Selesai)**
 
 ---
 
@@ -34,7 +34,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | ID Task | Nama Task | Status | Dependensi | Tautan Dokumen |
 | :--- | :--- | :---: | :--- | :--- |
 | **TASK-001** | Project Setup & Baseline Tooling | `DONE` | Tidak ada | [TASK-001.md](file:///home/alarm/notes/tasks/TASK-001-project-setup.md) |
-| **TASK-002** | Local Data Layer (Room & DAOs) | `NOT_STARTED` | TASK-001 | [TASK-002.md](file:///home/alarm/notes/tasks/TASK-002-local-data-layer.md) |
+| **TASK-002** | Local Data Layer (Room & DAOs) | `DONE` | TASK-001 | [TASK-002.md](file:///home/alarm/notes/tasks/TASK-002-local-data-layer.md) |
 | **TASK-003** | Domain Models & Contracts | `NOT_STARTED` | TASK-001 | [TASK-003.md](file:///home/alarm/notes/tasks/TASK-003-domain-and-contracts.md) |
 | **TASK-004** | Data Layer Repositories & Mappers | `NOT_STARTED` | TASK-002, TASK-003 | [TASK-004.md](file:///home/alarm/notes/tasks/TASK-004-data-repositories.md) |
 | **TASK-005** | Design System & Navigation Base | `NOT_STARTED` | TASK-001 | [TASK-005.md](file:///home/alarm/notes/tasks/TASK-005-design-system-and-nav.md) |
@@ -47,7 +47,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ### Status Ringkas
 - [x] TASK-001 — Project Setup & Baseline Tooling (DONE)
-- [ ] TASK-002 — Local Data Layer (Room & DAOs)
+- [x] TASK-002 — Local Data Layer (Room & DAOs) (DONE)
 - [ ] TASK-003 — Domain Models & Contracts
 - [ ] TASK-004 — Data Layer Repositories & Mappers
 - [ ] TASK-005 — Design System & Navigation Base
