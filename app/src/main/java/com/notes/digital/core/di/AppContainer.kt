@@ -11,6 +11,7 @@ interface AppContainer {
     val database: AppDatabase
     val bookRepository: BookRepository
     val noteRepository: NoteRepository
+    val backupManager: com.notes.digital.data.backup.BackupManager
 }
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
@@ -25,5 +26,9 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
 
     override val noteRepository: NoteRepository by lazy {
         NoteRepositoryImpl(database.noteDao())
+    }
+
+    override val backupManager: com.notes.digital.data.backup.BackupManager by lazy {
+        com.notes.digital.data.backup.BackupManager(database)
     }
 }

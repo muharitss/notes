@@ -198,4 +198,15 @@ class BookListViewModelTest {
         viewModel.onEvent(BookListUiEvent.OnUserMessageDismissed)
         assertNull(viewModel.uiState.value.userMessage)
     }
+
+    @Test
+    fun onBackupRestoreClicked_opensBackupDialog() = runTest(testDispatcher) {
+        assertFalse(viewModel.uiState.value.isBackupRestoreDialogOpen)
+
+        viewModel.onEvent(BookListUiEvent.OnBackupRestoreClicked)
+        assertTrue(viewModel.uiState.value.isBackupRestoreDialogOpen)
+
+        viewModel.onEvent(BookListUiEvent.OnDismissBackupRestoreDialog)
+        assertFalse(viewModel.uiState.value.isBackupRestoreDialogOpen)
+    }
 }

@@ -34,6 +34,9 @@ interface NoteDao {
     """)
     fun searchNotesGlobal(query: String): Flow<List<NoteEntity>>
 
+    @Query("SELECT * FROM notes ORDER BY updated_at DESC")
+    suspend fun getAllNotes(): List<NoteEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdateNote(note: NoteEntity): Long
 

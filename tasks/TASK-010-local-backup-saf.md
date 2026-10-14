@@ -37,9 +37,9 @@ Karena aplikasi bersifat 100% offline dan data tersimpan di sandbox aplikasi, ut
 - `app/src/test/java/com/notes/digital/data/backup/BackupManagerTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Pengguna dapat mengekspor seluruh buku dan catatan menjadi file JSON ke direktori pilihan mereka.
-- [ ] Pengguna dapat mengimpor kembali file cadangan JSON dan data berhasil dipulihkan secara utuh ke Room DB.
-- [ ] File cadangan tidak memerlukan permission runtime berbahaya.
+- [x] Pengguna dapat mengekspor seluruh buku dan catatan menjadi file JSON ke direktori pilihan mereka.
+- [x] Pengguna dapat mengimpor kembali file cadangan JSON dan data berhasil dipulihkan secara utuh ke Room DB.
+- [x] File cadangan tidak memerlukan permission runtime berbahaya.
 
 ## 10. Skenario Pengujian
 - Unit test serialisasi JSON terhadap data buku berelasi catatan.
@@ -53,11 +53,11 @@ Karena aplikasi bersifat 100% offline dan data tersimpan di sandbox aplikasi, ut
 - Pastikan proses import menangani konflik ID secara aman dengan melakukan insert sebagai data baru atau mengganti sesuai konfirmasi pengguna.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat DTO dan parser JSON
-- [ ] Buat `BackupManager`
-- [ ] Integrasikan SAF File Picker di UI
-- [ ] Tulis unit test serialisasi
-- [ ] Verifikasi ekspor & impor berjalan sukses
+- [x] Buat DTO dan parser JSON
+- [x] Buat `BackupManager`
+- [x] Integrasikan SAF File Picker di UI
+- [x] Tulis unit test serialisasi
+- [x] Verifikasi ekspor & impor berjalan sukses
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`

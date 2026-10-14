@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.notes.digital.core.di.AppContainer
 import com.notes.digital.core.util.AppResult
+import com.notes.digital.data.backup.BackupManager
 import com.notes.digital.domain.model.Book
 import com.notes.digital.domain.usecase.book.DeleteBookUseCase
 import com.notes.digital.domain.usecase.book.GetBooksUseCase
@@ -19,7 +20,8 @@ import kotlinx.coroutines.launch
 class BookListViewModel(
     private val getBooksUseCase: GetBooksUseCase,
     private val saveBookUseCase: SaveBookUseCase,
-    private val deleteBookUseCase: DeleteBookUseCase
+    private val deleteBookUseCase: DeleteBookUseCase,
+    private val backupManager: BackupManager? = null
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(BookListUiState(isLoading = true))
@@ -92,9 +94,73 @@ class BookListViewModel(
                     it.copy(isGridLayout = !it.isGridLayout)
                 }
             }
+            is BookListUiEvent.OnBackupRestoreClicked -> {
+                _uiState.update {
+                    it.copy(isBackupRestoreDialogOpen = true)
+                }
+            }
+            is BookListUiEvent.OnDismissBackupRestoreDialog -> {
+                _uiState.update {
+                    it.copy(isBackupRestoreDialogOpen = false)
+                }
+            }
+            is BookListUiEvent.OnExportBackup -> {
+                exportBackup(event.outputStream)
+            }
+            is BookListUiEvent.OnImportBackup -> {
+                importBackup(event.inputStream)
+            }
             is BookListUiEvent.OnUserMessageDismissed -> {
                 _uiState.update {
                     it.copy(userMessage = null)
+                }
+            }
+        }
+    }
+
+    private fun exportBackup(outputStream: java.io.OutputStream) {
+        if (backupManager == null) {
+            _uiState.update { it.copy(userMessage = "Utilitas cadangan tidak tersedia") }
+            return
+        }
+        viewModelScope.launch {
+            when (val result = backupManager.exportBackupToJson(outputStream)) {
+                is AppResult.Success -> {
+                    _uiState.update {
+                        it.copy(
+                            isBackupRestoreDialogOpen = false,
+                            userMessage = "Cadangan data berhasil diekspor"
+                        )
+                    }
+                }
+                is AppResult.Error -> {
+                    _uiState.update {
+                        it.copy(userMessage = result.message)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun importBackup(inputStream: java.io.InputStream) {
+        if (backupManager == null) {
+            _uiState.update { it.copy(userMessage = "Utilitas cadangan tidak tersedia") }
+            return
+        }
+        viewModelScope.launch {
+            when (val result = backupManager.importBackupFromJson(inputStream)) {
+                is AppResult.Success -> {
+                    _uiState.update {
+                        it.copy(
+                            isBackupRestoreDialogOpen = false,
+                            userMessage = "Data cadangan berhasil dipulihkan"
+                        )
+                    }
+                }
+                is AppResult.Error -> {
+                    _uiState.update {
+                        it.copy(userMessage = result.message)
+                    }
                 }
             }
         }
@@ -140,7 +206,8 @@ class BookListViewModel(
                     return BookListViewModel(
                         getBooksUseCase = GetBooksUseCase(container.bookRepository),
                         saveBookUseCase = SaveBookUseCase(container.bookRepository),
-                        deleteBookUseCase = DeleteBookUseCase(container.bookRepository)
+                        deleteBookUseCase = DeleteBookUseCase(container.bookRepository),
+                        backupManager = container.backupManager
                     ) as T
                 }
             }

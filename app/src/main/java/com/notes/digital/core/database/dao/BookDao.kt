@@ -27,6 +27,9 @@ interface BookDao {
     @Query("SELECT * FROM books WHERE id = :bookId LIMIT 1")
     fun getBookById(bookId: Long): Flow<BookEntity?>
 
+    @Query("SELECT * FROM books ORDER BY updated_at DESC")
+    suspend fun getAllBooks(): List<BookEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdateBook(book: BookEntity): Long
 

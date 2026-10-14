@@ -198,4 +198,52 @@ class DatabaseIntegrationTest {
         // Index 2 must be Note Lama (updatedAt 1000L)
         assertEquals("Note Lama", notes[2].title)
     }
+
+    @Test
+    fun testBackupExportAndImportIntegration() = runTest {
+        val backupManager = com.notes.digital.data.backup.BackupManager(database)
+
+        val bookId = bookDao.insertOrUpdateBook(
+            BookEntity(
+                title = "Buku Cadangan",
+                colorHex = "#FF5722",
+                createdAt = 1000L,
+                updatedAt = 1000L
+            )
+        )
+        noteDao.insertOrUpdateNote(
+            NoteEntity(
+                bookId = bookId,
+                title = "Catatan Penting",
+                content = "Data untuk diekspor",
+                isPinned = true,
+                createdAt = 1000L,
+                updatedAt = 1000L
+            )
+        )
+
+        val outputStream = java.io.ByteArrayOutputStream()
+        val exportResult = backupManager.exportBackupToJson(outputStream)
+        assertTrue(exportResult is com.notes.digital.core.util.AppResult.Success)
+
+        // Clear database
+        bookDao.deleteBookById(bookId)
+        assertTrue(bookDao.getAllBooks().isEmpty())
+        assertTrue(noteDao.getAllNotes().isEmpty())
+
+        // Import backup
+        val inputStream = java.io.ByteArrayInputStream(outputStream.toByteArray())
+        val importResult = backupManager.importBackupFromJson(inputStream)
+        assertTrue(importResult is com.notes.digital.core.util.AppResult.Success)
+
+        val restoredBooks = bookDao.getAllBooks()
+        assertEquals(1, restoredBooks.size)
+        assertEquals("Buku Cadangan", restoredBooks[0].title)
+
+        val restoredNotes = noteDao.getAllNotes()
+        assertEquals(1, restoredNotes.size)
+        assertEquals("Catatan Penting", restoredNotes[0].title)
+        assertEquals("Data untuk diekspor", restoredNotes[0].content)
+        assertEquals(restoredBooks[0].id, restoredNotes[0].bookId)
+    }
 }

@@ -43,6 +43,8 @@ class RepositoryTest {
         override suspend fun deleteBookById(bookId: Long) {
             booksMap.remove(bookId)
         }
+
+        override suspend fun getAllBooks(): List<BookEntity> = booksMap.values.toList()
     }
 
     private class FakeNoteDao : NoteDao {
@@ -60,6 +62,8 @@ class RepositoryTest {
         override fun getNoteById(noteId: Long): Flow<NoteEntity?> = singleNoteFlow
 
         override fun searchNotesGlobal(query: String): Flow<List<NoteEntity>> = searchFlow
+
+        override suspend fun getAllNotes(): List<NoteEntity> = notesMap.values.toList()
 
         override suspend fun insertOrUpdateNote(note: NoteEntity): Long {
             val id = if (note.id == 0L) nextId++ else note.id
