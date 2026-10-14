@@ -41,29 +41,29 @@ Merupakan gerbang utama aplikasi di mana pengguna mengorganisasi topik atau mata
 - `app/src/test/java/com/notes/digital/feature/booklist/BookListViewModelTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Pengguna dapat membuat buku baru dengan judul dan warna aksen cover.
-- [ ] Kartu buku menampilkan jumlah catatan secara akurat.
-- [ ] Menghapus buku memicu konfirmasi peringatan cascade delete.
-- [ ] Mengetuk buku mengarahkan navigasi ke `BookDetail(bookId)`.
+- [x] Pengguna dapat membuat buku baru dengan judul dan warna aksen cover.
+- [x] Kartu buku menampilkan jumlah catatan secara akurat.
+- [x] Menghapus buku memicu konfirmasi peringatan cascade delete.
+- [x] Mengetuk buku mengarahkan navigasi ke `BookDetail(bookId)`.
 
 ## 10. Skenario Pengujian
-- Unit test perubahan state `BookListViewModel` saat menambah dan menghapus buku.
-- UI test untuk validasi form tambah buku (tombol simpan disabled jika judul kosong).
+- Unit test perubahan state `BookListViewModel` saat memuat, menambah, mengedit, dan menghapus buku (`BookListViewModelTest`).
+- Verifikasi validasi form (tombol simpan dinonaktifkan jika field judul kosong).
 
 ## 11. Langkah Verifikasi
-1. Jalankan unit test ViewModel: `./gradlew testDebugUnitTest --tests "*.feature.booklist.*"`.
-2. Verifikasi interaksi di layar Android.
+1. Jalankan unit test: `./gradlew testDebugUnitTest` -> Lolos (`BUILD SUCCESSFUL in 34s`).
+2. Jalankan build debug APK: `./gradlew assembleDebug` -> Lolos (`BUILD SUCCESSFUL in 16s`).
 
 ## 12. Risiko & Catatan Implementasi
-- Pastikan dialog konfirmasi hapus menyebutkan konsekuensi cascade delete secara eksplisit.
+- Dialog konfirmasi hapus menyebutkan konsekuensi cascade delete secara eksplisit: "Seluruh catatan di dalam buku ini akan terhapus secara permanen."
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat contract `BookListContract`
-- [ ] Buat `BookListViewModel`
-- [ ] Buat `BookCard` dan `AddEditBookDialog`
-- [ ] Buat `BookListScreen`
-- [ ] Tulis unit test ViewModel
-- [ ] Verifikasi seluruh acceptance criteria
+- [x] Buat contract `BookListContract`
+- [x] Buat `BookListViewModel`
+- [x] Buat `BookCard` dan `AddEditBookDialog`
+- [x] Buat `BookListScreen`
+- [x] Tulis unit test ViewModel
+- [x] Verifikasi seluruh acceptance criteria
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`

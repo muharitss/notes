@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,9 +24,23 @@ fun AppNavHost(
         modifier = modifier
     ) {
         composable<Destination.BookList> {
-            Surface(modifier = Modifier.fillMaxSize()) {
-                Text(text = "Daftar Buku")
-            }
+            val context = androidx.compose.ui.platform.LocalContext.current
+            val app = context.applicationContext as com.notes.digital.App
+            val viewModel: com.notes.digital.feature.booklist.BookListViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+                factory = com.notes.digital.feature.booklist.BookListViewModel.provideFactory(app.container)
+            )
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+            com.notes.digital.feature.booklist.BookListScreen(
+                uiState = uiState,
+                onEvent = viewModel::onEvent,
+                onBookClick = { bookId ->
+                    navController.navigate(Destination.BookDetail(bookId))
+                },
+                onNavigateToSearch = {
+                    navController.navigate(Destination.GlobalSearch)
+                }
+            )
         }
         composable<Destination.BookDetail> { backStackEntry ->
             val route = backStackEntry.toRoute<Destination.BookDetail>()
