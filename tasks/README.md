@@ -25,7 +25,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
    - Realisasi: `(10 / 10) * 100%` = **100%**
 2. **Progres Fase Implementasi (Source Code & Testing):**
    - Formula: `(Task Berstatus DONE / Total Task Implementasi) * 100%`
-   - Realisasi: `(8 / 11) * 100%` = **72.73% (8 dari 11 Task Selesai)**
+   - Realisasi: `(9 / 11) * 100%` = **81.82% (9 dari 11 Task Selesai)**
 
 ---
 
@@ -41,7 +41,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 | **TASK-006** | Feature: Notebook Management (Dashboard) | `DONE` | TASK-004, TASK-005 | [TASK-006.md](file:///home/alarm/notes/tasks/TASK-006-notebook-management.md) |
 | **TASK-007** | Feature: Note List in Notebook | `DONE` | TASK-004, TASK-005, TASK-006 | [TASK-007.md](file:///home/alarm/notes/tasks/TASK-007-note-list-management.md) |
 | **TASK-008** | Feature: Note Editor with Auto-Save | `DONE` | TASK-004, TASK-005, TASK-007 | [TASK-008.md](file:///home/alarm/notes/tasks/TASK-008-note-editor-autosave.md) |
-| **TASK-009** | Feature: Local Search & Filtering | `NOT_STARTED` | TASK-007, TASK-008 | [TASK-009.md](file:///home/alarm/notes/tasks/TASK-009-search-and-organization.md) |
+| **TASK-009** | Feature: Local Search & Filtering | `DONE` | TASK-007, TASK-008 | [TASK-009.md](file:///home/alarm/notes/tasks/TASK-009-search-and-organization.md) |
 | **TASK-010** | Utility: Local Backup (JSON SAF) | `NOT_STARTED` | TASK-004 | [TASK-010.md](file:///home/alarm/notes/tasks/TASK-010-local-backup-saf.md) |
 | **TASK-011** | End-to-End Verification & QA Release | `NOT_STARTED` | TASK-001 s/d TASK-010 | [TASK-011.md](file:///home/alarm/notes/tasks/TASK-011-verification-and-release.md) |
 
@@ -54,7 +54,7 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 - [x] TASK-006 — Feature: Notebook Management (Dashboard) (DONE)
 - [x] TASK-007 — Feature: Note List in Notebook (DONE)
 - [x] TASK-008 — Feature: Note Editor with Auto-Save (DONE)
-- [ ] TASK-009 — Feature: Local Search & Filtering
+- [x] TASK-009 — Feature: Local Search & Filtering (DONE)
 - [ ] TASK-010 — Utility: Local Backup (JSON SAF)
 - [ ] TASK-011 — End-to-End Verification & QA Release
 
@@ -62,17 +62,17 @@ Perhitungan progres dipisahkan secara tegas agar tidak memberikan kesan semu bah
 
 ## 4. Status Eksekusi Saat Ini
 
-- **Task yang Sedang Dikerjakan:** `NONE` (TASK-008 selesai).
-- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-009** (Feature: Local Search & Filtering).
-- **Task yang Terblokir:** TASK-010 s/d TASK-011.
+- **Task yang Sedang Dikerjakan:** `NONE` (TASK-009 selesai).
+- **Task Berikutnya yang Memenuhi Dependensi:** **TASK-010** (Utility: Local Backup (JSON SAF)).
+- **Task yang Terblokir:** TASK-011.
 
 ---
 
 ## 5. Ringkasan Pekerjaan Terakhir & Verifikasi
 
-- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-008 (Feature Note Editor with Auto-Save: `NoteEditorContract`, `NoteEditorViewModel` dengan debouncing 500 ms dan instant flush, `NoteEditorScreen` layout bebas distraksi, integrasi rute navigasi `Destination.NoteEditor` di `AppNavHost`, serta unit test lengkap `NoteEditorViewModelTest`).
+- **Hasil Pekerjaan Terakhir:** Penyelesaian TASK-009 (Feature Local Search & Filtering: `GlobalSearchContract`, `GlobalSearchViewModel` dengan debounce query 300 ms dan mapping judul/warna buku induk, `GlobalSearchScreen` dengan autofocus, badge nama buku asal, state kosong panduan vs tidak ditemukan, integrasi rute navigasi `Destination.GlobalSearch` di `AppNavHost`, serta unit test lengkap `GlobalSearchViewModelTest`).
 - **Pengujian yang Sudah Dijalankan:**
-  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (40 unit test lulus 100%).
+  - `./gradlew testDebugUnitTest` -> `BUILD SUCCESSFUL` (44 unit test lulus 100%).
   - `./gradlew assembleDebug` -> `BUILD SUCCESSFUL` (APK terkompilasi bersih).
 - **Keputusan yang Menunggu Persetujuan:**
   1. Persetujuan proposal arsitektur 3-Layer (Clean Architecture proporsional).

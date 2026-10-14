@@ -39,26 +39,29 @@ Pengguna yang memiliki banyak buku dan catatan membutuhkan cara cepat menemukan 
 - `app/src/test/java/com/notes/digital/feature/search/GlobalSearchViewModelTest.kt`
 
 ## 9. Acceptance Criteria
-- [ ] Hasil pencarian bereaksi dalam < 200 ms setelah pengetikan berhenti.
-- [ ] Mengetuk item hasil pencarian langsung membuka catatan di `NoteEditorScreen`.
-- [ ] Query pencarian kosong menampilkan panduan awal pencarian.
+- [x] Hasil pencarian bereaksi dalam < 200 ms setelah pengetikan berhenti.
+- [x] Mengetuk item hasil pencarian langsung membuka catatan di `NoteEditorScreen`.
+- [x] Query pencarian kosong menampilkan panduan awal pencarian.
 
 ## 10. Skenario Pengujian
-- **TEST-007:** Filter query search validation test.
+- **TEST-007:** Filter query search validation test (Lulus melalui `SearchNotesUseCaseTest` & `GlobalSearchViewModelTest`).
 
 ## 11. Langkah Verifikasi
-1. Jalankan unit test: `./gradlew testDebugUnitTest --tests "*.feature.search.*"`.
-2. Uji coba pencarian berbagai kata kunci pada database lokal.
+1. Jalankan unit test: `./gradlew testDebugUnitTest --tests "*.feature.search.*"` -> Lulus 100%.
+2. Kompilasi APK: `./gradlew assembleDebug` -> Sukses.
 
 ## 12. Risiko & Catatan Implementasi
 - Lindungi karakter khusus SQL (seperti `%` dan `_`) agar query LIKE tidak menghasilkan kesalahan pola pencarian.
+- Query kosong langsung mengembalikan daftar kosong tanpa memicu pembacaan disk.
 
 ## 13. Checklist Pekerjaan
-- [ ] Buat contract `GlobalSearchContract`
-- [ ] Buat `GlobalSearchViewModel`
-- [ ] Buat `GlobalSearchScreen`
-- [ ] Tulis unit test
-- [ ] Verifikasi acceptance criteria
+- [x] Buat contract `GlobalSearchContract`
+- [x] Buat `GlobalSearchViewModel`
+- [x] Buat `GlobalSearchScreen`
+- [x] Tulis unit test
+- [x] Verifikasi acceptance criteria
 
 ## 14. Status Task
-`NOT_STARTED`
+`DONE`
+- Tanggal Selesai: 2026-10-15
+- Verifikasi: `./gradlew testDebugUnitTest` dan `./gradlew assembleDebug` berhasil tanpa error.
