@@ -74,6 +74,7 @@ fun BookDetailScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             NoteTopAppBar(
                 title = uiState.book?.title ?: "Detail Buku",

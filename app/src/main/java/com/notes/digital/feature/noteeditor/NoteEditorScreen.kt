@@ -82,6 +82,7 @@ fun NoteEditorScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             NoteTopAppBar(
                 title = "",

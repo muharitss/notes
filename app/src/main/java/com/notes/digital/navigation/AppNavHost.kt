@@ -1,5 +1,7 @@
 package com.notes.digital.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -21,7 +23,11 @@ fun AppNavHost(
     NavHost(
         navController = navController,
         startDestination = Destination.BookList,
-        modifier = modifier
+        modifier = modifier,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
+        popEnterTransition = { EnterTransition.None },
+        popExitTransition = { ExitTransition.None }
     ) {
         composable<Destination.BookList> {
             val context = androidx.compose.ui.platform.LocalContext.current
